@@ -1,0 +1,17 @@
+version: '3.1'
+
+networks:
+ gpt:
+  external: true
+
+services:
+  nginx:
+    container_name: gpt-nginx
+    image: 'nginx:dev'
+    networks:
+      - gpt
+    ports:
+      - 8000:80
+    tty: true
+    privileged: true
+    restart: always
