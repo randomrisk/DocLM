@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  server-embedding:
+    container_name: server-embedding
+    image: 'server-embedding:dev'
+    ports:
+      - 8001:80
+    environment:
+      AUTH_CODE: ${AUTH_CODE}
+      OPENAI_KEYS: ${OPENAI_KEYS}
+    volumes:
+      - "${PROJ_DIR}/src:/work/src"

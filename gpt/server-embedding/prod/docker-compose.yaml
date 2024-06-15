@@ -1,0 +1,17 @@
+version: '3.1'
+
+networks:
+ gpt:
+  external: true
+
+services:
+  server-embedding:
+    container_name: server-embedding
+    image: 'server-embedding:dev'
+    networks:
+      - gpt
+    environment:
+      AUTH_CODE: ${AUTH_CODE}
+      OPENAI_KEYS: ${OPENAI_KEYS}
+    tty: true
+    restart: always
