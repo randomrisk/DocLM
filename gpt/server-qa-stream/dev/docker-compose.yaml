@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  server-qa-stream:
+    container_name: server-qa-stream
+    image: 'server-qa-stream:dev'
+    ports:
+      - 8002:80
+    environment:
+      AUTH_CODE: ${AUTH_CODE}
+      OPENAI_KEYS: ${OPENAI_KEYS}
+    volumes:
+      - "${PROJ_DIR}/src:/work/src"

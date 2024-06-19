@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+  gpt:
+    external: true
+
+services:
+  server-qa-stream:
+    container_name: server-qa-stream
+    image: 'server-qa-stream:dev'
+    networks:
+      - gpt
+    environment:
+      AUTH_CODE: ${AUTH_CODE}
+      OPENAI_KEYS: ${OPENAI_KEYS}
+      ACCESS_TOKEN_SECRET_KEY: ${ACCESS_TOKEN_SECRET_KEY}
+    tty: true
+    restart: always
