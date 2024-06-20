@@ -1,0 +1,22 @@
+version: '3.1'
+
+networks:
+  chat-with-pdf-all-network:
+    external: true
+
+services:
+  chat-with-pdf-all-mysql:
+    container_name: chat-with-pdf-all-mysql
+    image: 'mysql:8'
+    networks:
+      - chat-with-pdf-all-network
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: heros
+    volumes:
+      - "${SHARE_DIR}:/var/lib/mysql"
+      - "${CONFIG_FILE}:/etc/mysql/my.cnf"
