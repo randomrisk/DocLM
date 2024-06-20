@@ -4,3 +4,5 @@ gpt/server-qa-mul/src/env.py
 gpt/server-qa-mul/dev/.env
 gpt/server-qa-mul/prod/.env
 gpt/server-qa-stream/src/env.py
+mysql/.env_prod
+mysql/.env_dev
