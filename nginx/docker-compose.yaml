@@ -1,0 +1,17 @@
+version: '3.1'
+
+networks:
+  chat-with-pdf-all-network:
+    external: true
+
+services:
+  chat-with-pdf-all-nginx:
+    container_name: chat-with-pdf-all-nginx
+    image: 'nginx:dev'
+    networks:
+      - chat-with-pdf-all-network
+    ports:
+      - 8080:80
+    tty: true
+    privileged: true
+    restart: always
